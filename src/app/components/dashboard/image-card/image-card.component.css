@@ -1,0 +1,43 @@
+.card {
+    height: 350px;
+}
+
+figure {
+    height: 70%;
+}
+
+.card-text {
+    text-align: center;
+    font-weight: 500;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+button {
+    width: 20%;
+}
+
+.button-display {
+    text-align: center;
+    justify-self: center;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.pop-up {
+    position: absolute;
+    width: 15%;
+    top: 30%;
+    left: 61%;
+    border-radius: 10px;
+    background-color: rgb(239, 243, 195);
+    text-align: center;
+    opacity: 0.7;
+    font-size: 12px;
+    color: rgb(23, 23, 23);
+}

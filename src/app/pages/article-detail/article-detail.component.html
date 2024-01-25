@@ -1,0 +1,39 @@
+<div>
+    <app-header-landing-page></app-header-landing-page>
+</div>
+<div class="col-md-12">
+    <app-category-navbar [categories]="categories">
+    </app-category-navbar>
+</div>
+<div class="container mt-5" *ngIf="article">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <p class="mb-2" *ngIf="article.category_id && categories.length">
+                <strong>{{ getCategoryName(article.category_id) }}</strong>
+            </p>
+            <h2 class="display-4">{{ article.title }}</h2>
+            <p class="mb-3">{{ article.excerpt }}</p>
+            <div>
+                <img [src]="article.url" alt="Imagen del artículo" class="img-fluid mt-3 mb-2 rounded"
+                    style="width: 70%;">
+                <p class="small text-muted mb-3">{{ article.caption }} / {{ article.source }}</p>
+            </div>
+            <p [innerHTML]="article.body" class="mb-3"></p>
+            <p class="text-muted">Publicado el {{ article.publish_date | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+        </div>
+    </div>
+
+    <div class="row mt-4" *ngIf="creatorInfo">
+        <div class="col-md-6 offset-md-3 text-center">
+            <figure class="profile-img">
+                <img [src]="getProfileImage()" alt={{creatorInfo.name}} class="mr-3 rounded-circle">
+            </figure>
+
+            <div class="row mt-2">
+                <div class="col">
+                    <h5>{{ creatorInfo.name }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

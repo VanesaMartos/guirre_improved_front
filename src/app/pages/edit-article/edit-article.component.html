@@ -1,0 +1,98 @@
+<div class="container">
+
+    <h2 class="fw-bolder display-3">Edición de artículo</h2>
+    <hr>
+    <form [formGroup]="formArticleEdit" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+            <div class="mb-12 col-xs-12 col-md-12">
+                <label class="form-label">Título</label>
+                <input type="text" class="form-control" formControlName="title"
+                    (input)="onFieldChange('title', $event, 300)">
+                <span class="character-count">{{ formArticleEdit.get('title')?.value?.length || 0 }}/300</span>
+                <p class="error-message" *ngIf="checkError('title', 'required')">
+                    El campo título es obligatorio.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-12 col-xs-12 col-md-12">
+                <label class="form-label">Extracto/Resumen</label>
+                <input type="text" class="form-control" formControlName="excerpt"
+                    (input)="onFieldChange('excerpt', $event, 300)">
+                <span class="character-count">{{ formArticleEdit.get('excerpt')?.value?.length || 0 }}/300</span>
+                <p class="error-message" *ngIf="checkError('excerpt', 'required')">
+                    El campo resumen es obligatorio.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-12 col-xs-12 col-md-12">
+                <label class="form-label">Contenido</label>
+                <p-editor [style]="{ height: '320px' }" formControlName="body">
+                </p-editor>
+                <p class="error-message" *ngIf="checkError('body', 'required')">
+                    El campo contenido es obligatorio.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-12 col-xs-12 col-md-12">
+                <label class="form-label">Imagen</label>
+                <input type="text" class="form-control" formControlName="url"
+                    (input)="onFieldChange('url', $event, 500)">
+                <span class="character-count">{{ formArticleEdit.get('url')?.value?.length || 0 }}/500</span>
+                <p class="error-message" *ngIf="checkError('url', 'required')">
+                    La URL de la imagen es obligatoria.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-6 col-xs-12 col-md-6">
+                <label class="form-label">Fuente</label>
+                <input type="text" class="form-control" formControlName="source"
+                    (input)="onFieldChange('source', $event, 250)">
+                <span class="character-count">{{ formArticleEdit.get('source')?.value?.length || 0 }}/250</span>
+                <p class="error-message" *ngIf="checkError('source', 'required')">
+                    La fuente de la imagen es obligatoria.
+                </p>
+            </div>
+            <div class="mb-6 col-xs-12 col-md-6">
+                <label class="form-label">Pie de foto</label>
+                <input type="text" class="form-control" formControlName="caption"
+                    (input)="onFieldChange('caption', $event, 300)">
+                <span class="character-count">{{ formArticleEdit.get('caption')?.value?.length || 0 }}/300</span>
+                <p class="error-message" *ngIf="checkError('caption', 'required')">
+                    El pie de foto es obligatorio.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-12 col-xs-12 col-md-12">
+                <label class="form-label">Categoría</label>
+                <select class="form-select" (change)="onChange($event)">
+                    <option selected>Selecciona una categoría</option>
+                    <option *ngFor="let category of parentCategories" [value]="category.id">{{category.name}}</option>
+                </select>
+                <select *ngIf="subcategories.length" class="form-select" formControlName="category_id">
+                    <option value="" selected>Selecciona una subcategoría</option>
+                    <option *ngFor="let subcategory of subcategories" [value]="subcategory.id">{{subcategory.name}}
+                    </option>
+                </select>
+                <p class="error-message" *ngIf="checkError('category_id', 'required')">
+                    Categoría y subcategorías son obligatorias.
+                </p>
+            </div>
+        </div>
+        <button type="submit" value="Enviar" class="btn btn-warning" [disabled]="!formArticleEdit.valid">Guardar como
+            borrador</button>
+        <p class="error-message invalid-article" *ngIf="!formArticleEdit.valid">Aún quedan campos pendientes del
+            formulario.</p>
+    </form>
+    <div>
+
+    </div>
+</div>

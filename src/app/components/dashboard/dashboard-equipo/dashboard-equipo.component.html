@@ -1,0 +1,18 @@
+<h3>Equipo</h3>
+<article class="row buttons">
+    <button class="btn btn-warning col-6" (click)="changePage(false)" [disabled]="page === 1">Anterior</button>
+    <button class="btn btn-warning col-6" (click)="changePage(true)" [disabled]="page === totalPages">Siguiente</button>
+</article>
+<div class="container-fluid row">
+    <div class="card-team">
+        <app-teammate-card *ngFor="let teammate of displayedUsers" [oneUser]="teammate"></app-teammate-card>
+    </div>
+    <div class="col-12">
+        <ul class="pagination">
+            <li class="page-item" *ngFor="let pageNumber of getPageNumbers()">
+                <button class="page-link" (click)="goToPage(pageNumber)"
+                    [class.active]="pageNumber === page">{{pageNumber}}</button>
+            </li>
+        </ul>
+    </div>
+</div>

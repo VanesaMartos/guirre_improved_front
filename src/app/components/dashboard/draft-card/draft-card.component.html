@@ -1,0 +1,15 @@
+<div class="card-container">
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{oneArticle.title}}</h5>
+            <p class="card-text">{{oneArticle.excerpt}}</p>
+            <p class="card-text">{{oneArticle.creation_date | date: 'dd-MM-YYYY'}}</p>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-warning"
+                [routerLink]="['/area-personal','edicion', oneArticle.id]">Editar</button>
+            <button type="button" class="btn btn-warning"
+                [routerLink]="['/area-personal','asignacion',oneArticle.id]">Otras opciones</button>
+        </div>
+    </div>
+</div>

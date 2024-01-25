@@ -1,0 +1,20 @@
+h3 {
+    margin: 20px 0;
+}
+
+article {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+.articlesByWriter {
+    width: 100%;
+}
+
+.vacio {
+    text-align: center;
+    color: rgb(99, 98, 98);
+
+
+}

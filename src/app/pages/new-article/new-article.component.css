@@ -1,0 +1,26 @@
+.btn {
+    margin-top: 20px;
+    float: right;
+    display: block;
+}
+
+label {
+    margin-top: 20px;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+    border: 1px solid #dc3545;
+}
+
+.character-count {
+    float: right;
+    font-size: 70%;
+    color: grey;
+    margin-right: 10px;
+}
+
+.invalid-article {
+    margin-top: 3rem;
+    color: grey;
+}

@@ -1,0 +1,11 @@
+<ng-container *ngIf="article.category_id !== undefined" class="card-container">
+    <a [routerLink]="['/articulo', article.slug]" class="card-link">
+        <div class="card mb-3">
+            <img [src]="article.url" class="card-img-top">
+            <div class="card-body overflow-multiline">
+                <h5 class="card-title" #cardTitle>{{ article.title }}</h5>
+                <p class="card-text">{{ article.excerpt }}</p>
+            </div>
+        </div>
+    </a>
+</ng-container>

@@ -1,0 +1,28 @@
+<div id="dashboard-nav" class="dashboard-nav p-3 bg-light">
+  <a class="d-flex align-items-center justify-content-center pt-5 pb-3 mb-3 link-body-emphasis text-decoration-none">
+    <figure [routerLink]="['/guirre']">
+      <img src="../../../assets/images/logo_portada.png" alt="">
+    </figure>
+  </a>
+  <button class="toggle-button" (click)="toggleNav()">▼ MENÚ ▼</button>
+  <ul class="list-unstyled" [ngClass]="{ 'hide-nav': !showNav }">
+    <li class="mb-1" [routerLink]="['/area-personal']">
+      <button>Home</button>
+    </li>
+    <li class="mb-1" [routerLink]="['articulos']">
+      <button>Artículos</button>
+    </li>
+    <li class="mb-1" [routerLink]="['imagenes']">
+      <button>Imágenes</button>
+    </li>
+    <li class="mb-1" [routerLink]="['equipo']">
+      <button>Equipo</button>
+    </li>
+    <li class="border-top my-3"></li>
+    <li class="mb-1" [routerLink]="['guirre/']">
+      <button>Vista Periódico</button>
+    <li *ngIf="userLogged && userLogged.role !== 'editor'" class="mb-1" [routerLink]="['nuevo']">
+      <button>Nuevo artículo</button>
+    </li>
+  </ul>
+</div>

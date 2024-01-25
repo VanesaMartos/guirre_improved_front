@@ -1,0 +1,12 @@
+div.editor div,
+div.redactor div {
+    padding: 20px 0;
+}
+
+div.form-switch {
+    margin-left: 100px;
+}
+
+button {
+    float: right;
+}
